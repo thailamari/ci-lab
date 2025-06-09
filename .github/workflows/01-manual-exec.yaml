@@ -12,7 +12,7 @@ on:
 # trabalhos/tarefas dentro do pipeline = jobs
 
 jobs:
-  e2e-testes:
+  e2e-tests:
     # máquina que o job vai executar
     runs-on: ubuntu-latest
 
