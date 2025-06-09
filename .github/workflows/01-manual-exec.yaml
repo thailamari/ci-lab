@@ -31,6 +31,10 @@ jobs:
         run: npm install -g yarn
 
       # instalação das dependencias
+      - name: Instalando dependencias
+        run: yarn 
+
+      # instalação Playwright
       - name: Instalando Playwright
         run: yarn playwright install
 
@@ -38,5 +42,5 @@ jobs:
       - name: Executando Testes E2E
         run: yarn run e2e  
 
-        
+
 
