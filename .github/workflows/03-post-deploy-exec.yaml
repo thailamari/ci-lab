@@ -20,6 +20,9 @@ jobs:
     # máquina que o job vai executar
     runs-on: ubuntu-latest
 
+    # roda pra ver se a execução teve sucesso
+    if: ${{ github.event.workflow_run.conclusion == 'success'}}
+
     #passos para rodar os testes (scripts)
     steps:
       # clone do projeto
