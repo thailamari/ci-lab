@@ -7,7 +7,7 @@ name: 'Execução por Deploy'
 # gatilho de execução agendada = schedule
 # gatilho de execução a partir de outro pipe  = workflow_run
 
-on: 
+on:
   workflow_run:
     workflows: ['Execução Manual']
     types:
@@ -39,7 +39,7 @@ jobs:
 
       # instalação das dependencias
       - name: Instalando dependencias
-        run: yarn 
+        run: yarn
 
       # instalação Playwright
       - name: Instalando Playwright
@@ -47,13 +47,10 @@ jobs:
 
       # executar os testes e2e
       - name: Executando Testes E2E
-        run: yarn run e2e  
+        run: yarn run e2e
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
-        with: 
-         name: relatorio
-         path: ./playwright-report   
-
-
-
+        with:
+          name: relatorio
+          path: ./playwright-report

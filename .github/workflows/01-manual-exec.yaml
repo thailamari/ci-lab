@@ -6,7 +6,7 @@ name: 'Execução Manual'
 # Regras de disparo (gatilhos/triggers)
 # gatilho de execução manual = workflow_dispatch (fluxo de trabalho)
 
-on: 
+on:
   workflow_dispatch:
 
 # trabalhos/tarefas dentro do pipeline = jobs
@@ -32,7 +32,7 @@ jobs:
 
       # instalação das dependencias
       - name: Instalando dependencias
-        run: yarn 
+        run: yarn
 
       # instalação Playwright
       - name: Instalando Playwright
@@ -40,7 +40,4 @@ jobs:
 
       # executar os testes e2e
       - name: Executando Testes E2E
-        run: yarn run e2e  
-
-
-
+        run: yarn run e2e

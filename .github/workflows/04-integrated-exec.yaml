@@ -7,39 +7,39 @@ on:
 
 jobs:
   inspecao:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-   steps:
-    - uses: actions/checkout@v4
-    
-    - name: Instalando yarn
-      run: npm install -g yarn
-      
-    - name: Intalando Dependências
-      run: yarn
-      
-    - name: Checando padronizacao do código   #Inspeciona/ verifica se o código está padronizado
-      run: yarn lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalando yarn
+        run: npm install -g yarn
+
+      - name: Intalando Dependências
+        run: yarn
+
+      - name: Checando padronizacao do código #Inspeciona/ verifica se o código está padronizado
+        run: yarn lint
 
   unidade:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-   steps:
-    - uses: actions/checkout@v4
-    
-    - name: Instalando yarn
-      run: npm install -g yarn
-      
-    - name: Intalando Dependências
-      run: yarn
-      
-    - name: Executando teste de unidade
-      run: yarn test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalando yarn
+        run: npm install -g yarn
+
+      - name: Intalando Dependências
+        run: yarn
+
+      - name: Executando teste de unidade
+        run: yarn test
 
   e2e-tests:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-   steps:
+    steps:
       # clone do projeto
       - uses: actions/checkout@v4
 
@@ -54,7 +54,7 @@ jobs:
 
       # instalação das dependencias
       - name: Instalando dependencias
-        run: yarn 
+        run: yarn
 
       # instalação Playwright
       - name: Instalando Playwright
@@ -62,17 +62,17 @@ jobs:
 
       # executar os testes e2e
       - name: Executando Testes E2E
-        run: yarn run e2e  
+        run: yarn run e2e
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: relatorio
-          path: ./playwright-report  
+          path: ./playwright-report
 
   deploy:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-   steps:
-    - name: Simulação do Deploy
-      run: echo "Simulando o Deploy"     
+    steps:
+      - name: Simulação do Deploy
+        run: echo "Simulando o Deploy"
